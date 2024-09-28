@@ -1,0 +1,11 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 56px); /* Altura del contenido menos el header */
+
+  ion-card {
+    width: 100%;
+    max-width: 400px; /* Ajusta el ancho máximo del formulario */
+  }
+}
