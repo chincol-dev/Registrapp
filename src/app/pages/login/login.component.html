@@ -16,6 +16,9 @@
           <ion-input type="password" [(ngModel)]="password"></ion-input>
         </ion-item>
         <ion-button expand="block" (click)="login()">Ingresar</ion-button>
+        <p *ngIf="loginError" style="color: red; text-align: center; margin-top: 10px;">
+          {{ loginError }}
+        </p>
         <p><a [routerLink]="['/reset-password']">Recuperar contraseña</a></p>
       </ion-card-content>
     </ion-card>
