@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
     providedIn: 'root',
 })
 export class AuthService {
-    // Datos locales de usuarios
     private users = [
         { email: 'usuario1@example.com', password: '12345' },
         { email: 'usuario2@example.com', password: 'abcde' }
@@ -14,7 +13,6 @@ export class AuthService {
 
     constructor() {}
 
-    // Autenticación simulada sin HttpClient, usando datos locales
     authenticate(email: string, password: string): { success: boolean, message: string } {
         const user = this.users.find(u => u.email === email && u.password === password);
 
@@ -26,12 +24,17 @@ export class AuthService {
         }
     }
 
-    // Obtener el usuario logueado
+    // Método para verificar si hay un usuario logueado
+    isLoggedIn(): boolean {
+        return this.loggedInUser !== null;
+    }
+
+    // Obtener el nombre de usuario logueado
     getLoggedInUser(): string | null {
         return this.loggedInUser;
     }
 
-    // Cerrar sesión
+    // Método para cerrar sesión
     logout(): void {
         this.loggedInUser = null;
     }
