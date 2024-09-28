@@ -1,27 +1,38 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: 'root',
 })
 export class AuthService {
-  private usersUrl = 'assets/services/auth/users.json';  // Cambia según tu ruta de JSON
+    // Datos locales de usuarios
+    private users = [
+        { email: 'usuario1@example.com', password: '12345' },
+        { email: 'usuario2@example.com', password: 'abcde' }
+    ];
 
-  constructor(private http: HttpClient) {}
+    private loggedInUser: string | null = null;
 
-  // Autenticación simulada con un archivo JSON local
-  authenticate(email: string, password: string): Observable<any> {
-    return this.http.get(this.usersUrl).pipe(
-        map((users: any) => {
-          const user = users.find((u: any) => u.email === email && u.password === password);
-          if (user) {
-            return { success: true };
-          } else {
-            return { success: false };
-          }
-        })
-    );
-  }
+    constructor() {}
+
+    // Autenticación simulada sin HttpClient, usando datos locales
+    authenticate(email: string, password: string): { success: boolean, message: string } {
+        const user = this.users.find(u => u.email === email && u.password === password);
+
+        if (user) {
+            this.loggedInUser = email;
+            return { success: true, message: 'Login exitoso' };
+        } else {
+            return { success: false, message: 'Email o contraseña incorrecta' };
+        }
+    }
+
+    // Obtener el usuario logueado
+    getLoggedInUser(): string | null {
+        return this.loggedInUser;
+    }
+
+    // Cerrar sesión
+    logout(): void {
+        this.loggedInUser = null;
+    }
 }
