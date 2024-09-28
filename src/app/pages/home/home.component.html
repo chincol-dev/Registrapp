@@ -1,5 +1,8 @@
-<app-header></app-header>
-<p>
-  home works!
-</p>
-<app-footer></app-footer>
+<ion-content>
+  <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+    <div *ngIf="loggedInUser">
+      <h2>Bienvenido, {{ loggedInUser }}!</h2>
+      <ion-button expand="block" (click)="logout()">Cerrar sesión</ion-button>
+    </div>
+  </div>
+</ion-content>
