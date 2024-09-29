@@ -16,12 +16,12 @@ export class HomeComponent implements OnInit {
   // Verificar el estado de autenticación al inicializar el componente
   ngOnInit() {
     const isLogged = this.authService.isLoggedIn();
-    if (!isLogged) {
-      // Si el usuario no está logueado, redirigir al login
-      this.router.navigate(['/login']);
-    } else {
+    if (isLogged) {
       // Si está logueado, obtener el nombre del usuario
       this.loggedInUser = this.authService.getLoggedInUser();
+    } else {
+      // Si el usuario no está logueado, redirigir al login
+      this.router.navigate(['/login']);
     }
   }
 
