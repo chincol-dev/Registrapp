@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from "../../services/auth/auth.service";
 
 @Component({
   selector: 'app-teacher',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeacherComponent  implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
-  ngOnInit() {}
-
+  ngOnInit() {
+    const user = this.authService.getLoggedInUser();
+    if (!user || user.userType !== 'teacher') {
+      alert("No tienes permisos para acceder a esta pagina.");
+    }
+  }
 }
