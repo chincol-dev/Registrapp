@@ -7,17 +7,11 @@
         </ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <div class="ion-margin-bottom">
-          <ion-input label="Correo" type="email" label-placement="floating" fill="solid" [(ngModel)]="email"></ion-input>
-        </div>
-        <div class="ion-margin-bottom">
-          <ion-input label="Contraseña" type="password" label-placement="floating" fill="solid" [(ngModel)]="password"></ion-input>
-        </div>
-        <ion-button expand="block" (click)="login()">Ingresar</ion-button>
-        <p *ngIf="loginError" style="color: red; text-align: center; margin-top: 10px;">
-          {{ loginError }}
-        </p>
-        <p class="ion-text-center"><a [routerLink]="['/reset-password']">Recuperar contraseña</a></p>
+        <ion-input class="ion-margin-bottom" label="Correo" type="email" label-placement="floating" fill="solid" [(ngModel)]="email"></ion-input>
+        <ion-input class="ion-margin-bottom" label="Contraseña" type="password" label-placement="floating" fill="solid" [(ngModel)]="password"></ion-input>
+        <ion-button class="ion-margin-bottom" expand="block" (click)="login()">Ingresar</ion-button>
+        <ion-text *ngIf="loginError" color="danger"><p class="ion-text-center">{{ loginError }}</p></ion-text>
+        <ion-text ><p class="ion-text-center"><a [routerLink]="['/reset-password']">Recuperar contraseña</a></p></ion-text>
       </ion-card-content>
     </ion-card>
   </div>
