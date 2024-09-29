@@ -9,13 +9,17 @@ import {SharedModule} from "../shared/shared.module";
 import {IonicModule} from "@ionic/angular";
 import {FormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
+import {TeacherComponent} from "./teacher/teacher.component";
+import {StudentComponent} from "./student/student.component";
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     LoginComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    TeacherComponent,
+    StudentComponent
   ],
   imports: [
     CommonModule,
