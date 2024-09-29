@@ -9,7 +9,7 @@ import {AuthService} from "../../services/auth/auth.service";
 })
 export class HomeComponent implements OnInit {
 
-  loggedInUser: string | null = null;  // Variable para almacenar el usuario logueado
+  loggedInUser: { password: string; userType: string; email: string } | null = null;  // Variable para almacenar el usuario logueado
 
   constructor(private authService: AuthService, private router: Router) {}
 
