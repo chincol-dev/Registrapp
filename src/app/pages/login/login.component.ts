@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {AuthService} from "../../services/auth/auth.service";
+import { AuthService } from "../../services/auth/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -11,20 +11,31 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
   loginError: string = '';  // Variable para mostrar errores
+  isLoading: boolean = false;  // Variable para controlar el estado del loader
 
   constructor(private authService: AuthService, private router: Router) {}
 
   // Método para manejar el login
   login() {
-    const response = this.authService.authenticate(this.email, this.password);
+    // Mostrar el loader cuando el usuario intenta iniciar sesión
+    this.isLoading = true;
 
-    if (response.success) {
-      // Redirigir a la página de QR si el login es exitoso
-      this.router.navigate(['/home']);
-    } else {
-      // Mostrar el mensaje de error
-      this.loginError = response.message;
-    }
+    // Simular el proceso de autenticación (esto puede ser una llamada a una API)
+    setTimeout(() => {
+      const response = this.authService.authenticate(this.email, this.password);
+
+      if (response.success) {
+        // Simular un pequeño retraso para mostrar la animación de carga antes de redirigir
+        setTimeout(() => {
+          this.isLoading = false;  // Ocultar el loader
+          this.router.navigate(['/home']);  // Redirigir a la página principal
+        }, 2000);  // Espera 2 segundos antes de redirigir
+      } else {
+        // Si hay un error, mostrar el mensaje de error y ocultar el loader
+        this.isLoading = false;
+        this.loginError = response.message;
+      }
+    }, 1000); // Simular tiempo de autenticación (puedes ajustar este valor)
   }
 
   // Método para restablecer la contraseña (opcional)

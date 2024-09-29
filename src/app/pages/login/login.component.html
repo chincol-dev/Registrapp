@@ -7,12 +7,28 @@
         </ion-card-title>
       </ion-card-header>
       <ion-card-content>
+        <!-- Campos de entrada de correo y contraseña -->
         <ion-input class="ion-margin-bottom" label="Correo" type="email" label-placement="floating" fill="solid" [(ngModel)]="email"></ion-input>
         <ion-input class="ion-margin-bottom" label="Contraseña" type="password" label-placement="floating" fill="solid" [(ngModel)]="password"></ion-input>
+
+        <!-- Botón para iniciar sesión -->
         <ion-button class="ion-margin-bottom" expand="block" (click)="login()">Ingresar</ion-button>
-        <ion-text *ngIf="loginError" color="danger"><p class="ion-text-center">{{ loginError }}</p></ion-text>
-        <ion-text ><p class="ion-text-center"><a [routerLink]="['/reset-password']">Recuperar contraseña</a></p></ion-text>
+
+        <!-- Mostrar mensaje de error si ocurre un fallo en la autenticación -->
+        <ion-text *ngIf="loginError" color="danger">
+          <p class="ion-text-center">{{ loginError }}</p>
+        </ion-text>
+
+        <!-- Enlace para recuperar contraseña -->
+        <ion-text>
+          <p class="ion-text-center">
+            <a [routerLink]="['/reset-password']">Recuperar contraseña</a>
+          </p>
+        </ion-text>
       </ion-card-content>
     </ion-card>
   </div>
+
+  <!-- Componente de carga -->
+  <app-loading [isLoading]="isLoading" [message]="'Iniciando sesión...'" [duration]="2000"></app-loading>
 </ion-content>

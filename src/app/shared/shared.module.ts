@@ -4,13 +4,15 @@ import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
 import {IonicModule} from "@ionic/angular";
 import {RouterModule} from "@angular/router";
+import {LoadingComponent} from "./loading/loading.component";
 
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import {RouterModule} from "@angular/router";
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoadingComponent
   ]
 })
 export class SharedModule { }
