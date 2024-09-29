@@ -28,7 +28,11 @@ export class LoginComponent {
         // Simular un pequeño retraso para mostrar la animación de carga antes de redirigir
         setTimeout(() => {
           this.isLoading = false;  // Ocultar el loader
-          this.router.navigate(['/home']);  // Redirigir a la página principal
+          if (this.authService.getLoggedInUser()?.userType === 'student') {
+            this.router.navigate(['/student']);  // Redirigir a la página principal
+          } else {
+            this.router.navigate(['/teacher']);  // Redirigir a la página principal
+          }
         }, 2000);  // Espera 2 segundos antes de redirigir
       } else {
         // Si hay un error, mostrar el mensaje de error y ocultar el loader
@@ -36,10 +40,5 @@ export class LoginComponent {
         this.loginError = response.message;
       }
     }, 1000); // Simular tiempo de autenticación (puedes ajustar este valor)
-  }
-
-  // Método para restablecer la contraseña (opcional)
-  resetPassword() {
-    this.router.navigate(['/reset-password']);
   }
 }
