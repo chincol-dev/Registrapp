@@ -1,7 +1,7 @@
 <ion-content>
   <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
     <div *ngIf="loggedInUser">
-      <h2>Bienvenido, {{ loggedInUser }}!</h2>
+      <h2>Bienvenido, {{ loggedInUser.email }}!</h2>
       <ion-button expand="block" (click)="logout()">Cerrar sesión</ion-button>
     </div>
   </div>
