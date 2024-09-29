@@ -1,0 +1,13 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Asegura que el contenido esté centrado verticalmente */
+  text-align: center;
+}
+
+.small-button {
+  font-size: 12px; /* Ajusta el tamaño de la fuente del botón */
+  padding: 5px 10px; /* Ajusta el relleno del botón */
+}

@@ -11,6 +11,7 @@ import {FormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import {TeacherComponent} from "./teacher/teacher.component";
 import {StudentComponent} from "./student/student.component";
+import {AsignaturaComponent} from "./asignatura/asignatura.component";
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {StudentComponent} from "./student/student.component";
     LoginComponent,
     ResetPasswordComponent,
     TeacherComponent,
-    StudentComponent
+    StudentComponent,
+    AsignaturaComponent
   ],
   imports: [
     CommonModule,

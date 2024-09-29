@@ -1,3 +1,13 @@
-<p>
-  teacher works!
-</p>
+<app-header></app-header>
+
+<ion-content>
+  <ion-list *ngIf="asignaturas.length > 0">
+    <ion-item *ngFor="let asignatura of asignaturas">
+      {{ asignatura.nombre }}
+      <ion-button slot="end" (click)="seleccionarAsignatura(asignatura)">Seleccionar</ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-text *ngIf="asignaturas.length === 0">
+    <p>No hay asignaturas disponibles.</p>
+  </ion-text>
+</ion-content>

@@ -16,5 +16,8 @@ export class StudentComponent  implements OnInit {
       alert("No tienes permisos para acceder a esta pagina.");
     }
   }
+  generateQR() {
+    alert("QR escaneado");
+  }
 
 }

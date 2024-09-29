@@ -1,14 +1,14 @@
+<!-- header.component.html -->
 <ion-header>
   <ion-toolbar>
     <ion-title slot="start">
       <ion-button fill="clear" routerLink="/">
-        RApp
+        <h2 class="welcome-message">Bienvenido, {{ userEmail }}!</h2>
       </ion-button>
     </ion-title>
     <ion-buttons slot="end">
-      <!-- Botón para ir al login -->
-      <ion-button fill="clear" routerLink="/login">
-        Iniciar Sesión
+      <ion-button fill="clear" (click)="logout()">
+        Cerrar Sesion
       </ion-button>
     </ion-buttons>
   </ion-toolbar>

@@ -1,4 +1,6 @@
-.small-image {
-  width: 60px;
-  height: 80px;
+.welcome-message {
+  font-size: 14px; /* Ajusta el tamaño de la fuente según tus necesidades */
+  @media (max-width: 600px) {
+    font-size: 12px; /* Tamaño de fuente para dispositivos móviles */
+  }
 }
