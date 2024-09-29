@@ -1,5 +1,19 @@
 <app-header></app-header>
 <div class="content">
-  <p>Generar código QR</p>
-  <ion-button class="small-button" (click)="generateQR()">Generar QR</ion-button>
+  <p>Asignaturas Disponibles</p>
+  <ion-list>
+    <ion-item *ngFor="let asignatura of asignaturas">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{ asignatura.nombre }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p><strong>Fecha:</strong> {{ asignatura.fecha }}</p>
+          <p><strong>Hora:</strong> {{ asignatura.hora }}</p>
+          <p><strong>Aula:</strong> {{ asignatura.aula }}</p>
+          <ion-button (click)="escanearQR(asignatura)">Escanear QR</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
 </div>

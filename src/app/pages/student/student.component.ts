@@ -1,23 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../services/auth/auth.service";
+import { AsignaturasService } from '../../services/asignaturas.service';
 
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
   styleUrls: ['./student.component.scss'],
 })
-export class StudentComponent  implements OnInit {
+export class StudentComponent implements OnInit {
+  asignaturas: any[] = [];
 
-  constructor(private authService: AuthService) { }
+  constructor(private asignaturasService: AsignaturasService) {}
 
   ngOnInit() {
-    const user = this.authService.getLoggedInUser();
-    if (!user || user.userType !== 'student') {
-      alert("No tienes permisos para acceder a esta pagina.");
-    }
+    this.asignaturas = this.asignaturasService.getAsignaturas();
   }
-  generateQR() {
-    alert("QR escaneado");
+  escanearQR(asignatura: any) {
+    // Implement QR scanning logic here
+    console.log('Escanear QR button clicked for', asignatura.nombre);
   }
-
 }

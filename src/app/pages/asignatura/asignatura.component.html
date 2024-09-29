@@ -4,5 +4,16 @@
   </ion-toolbar>
 </ion-header>
 
-
-
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Detalles de la Asignatura</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Fecha:</strong> {{ fecha }}</p>
+      <p><strong>Hora:</strong> {{ hora }}</p>
+      <p><strong>Aula:</strong> {{ aula }}</p>
+      <ion-button (click)="generarQR()">Generar QR</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
