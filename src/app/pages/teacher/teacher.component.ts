@@ -21,6 +21,7 @@ export class TeacherComponent implements OnInit {
     const user = this.authService.getLoggedInUser();
     if (!user || user.userType !== 'teacher') {
       alert("No tienes permisos para acceder a esta pagina.");
+      this.router.navigate(['/']);
     }
     this.asignaturas = this.asignaturasService.getAsignaturas();
   }
